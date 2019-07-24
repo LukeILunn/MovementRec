@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:maxLines="1"
+        android:text="Participant ID" />
+
+    <EditText
+        android:id="@+id/etParticipantID"
+        android:layout_width="382dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:inputType="text"
+        android:maxLines="1"
+        android:contentDescription="Enter the Participant ID"
+        android:ems="10"
+        android:hint="Participant ID"
+        android:selectAllOnFocus="true"/>
+
+    <TextView
+        android:id="@+id/tvYob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Year of birth" />
+
+    <TextView
+        android:id="@+id/nYob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:hint="Choose a year"
+        android:paddingBottom="10dp"
+        android:paddingEnd="50dp"
+        android:paddingStart="50dp"
+        android:paddingTop="10dp"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Height" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/nHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:contentDescription="Enter participant height"
+            android:ems="10"
+            android:hint="Type the height"
+            android:inputType="numberDecimal"
+            android:maxLength="5"/>
+
+        <TextView
+            android:id="@+id/tvHeightUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="cm" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Weight" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/nWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:contentDescription="Enter participant weight"
+            android:ems="10"
+            android:hint="Type the weight"
+            android:inputType="numberDecimal"
+            android:maxLength="5"/>
+
+        <TextView
+            android:id="@+id/tvWeightUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="kg" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/ibParticipantInfoDone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="32dp"
+        android:background="#0000"
+        android:contentDescription="Done"
+        app:srcCompat="@drawable/ic_checked"/>
+
+</LinearLayout>

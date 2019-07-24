@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">MovementRecorder</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="participantid_key">participantid</string>
+    <string name="yob_key">yob</string>
+    <string name="height_key">height</string>
+    <string name="weight_key">weight</string>
+
+    <string name="phone_acc_key">phone_acc</string>
+    <string name="phone_gyr_key">phone_gyr</string>
+    <string name="phone_mag_key">phone_mag</string>
+
+    <string name="watch_acc_key">watch_acc</string>
+    <string name="watch_gyr_key">watch_gyr</string>
+    <string name="watch_mag_key">watch_mag</string>
+    <string name="watch_hrt_key">watch_hrt</string>
+
+    <string-array name="units">
+        <item>Metric</item>
+        <item>Imperial</item>
+    </string-array>
+</resources>
