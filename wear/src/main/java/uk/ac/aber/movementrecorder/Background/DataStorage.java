@@ -34,6 +34,7 @@ public class DataStorage {
 
     public ArrayList<String> sensList = new ArrayList<>();
 
+    private ArrayList<float[]> allData;
     private static final int SENDINGLENGTH = 200;
 
     private float startRecTime;
@@ -650,35 +651,35 @@ public class DataStorage {
     }
 
     public ArrayList<float[]> getAllPartial() {
-        ArrayList<float[]> alldata = new ArrayList<>();
+        allData = new ArrayList<>();
 
         if (!accXArray.isEmpty()) {
-            alldata.add(getPartialAccX());
-            alldata.add(getPartialAccY());
-            alldata.add(getPartialAccZ());
-            alldata.add(getPartialAccTimestamp());
+            allData.add(getPartialAccX());
+            allData.add(getPartialAccY());
+            allData.add(getPartialAccZ());
+            allData.add(getPartialAccTimestamp());
         }
 
         if (!gyrXArray.isEmpty()) {
-            alldata.add(getPartialGyrX());
-            alldata.add(getPartialGyrY());
-            alldata.add(getPartialGyrZ());
-            alldata.add(getPartialGyrTimestamp());
+            allData.add(getPartialGyrX());
+            allData.add(getPartialGyrY());
+            allData.add(getPartialGyrZ());
+            allData.add(getPartialGyrTimestamp());
         }
 
         if (!magXArray.isEmpty()) {
-            alldata.add(getPartialMagX());
-            alldata.add(getPartialMagY());
-            alldata.add(getPartialMagZ());
-            alldata.add(getPartialMagTimestamp());
+            allData.add(getPartialMagX());
+            allData.add(getPartialMagY());
+            allData.add(getPartialMagZ());
+            allData.add(getPartialMagTimestamp());
         }
 
         if (!hrtArray.isEmpty()) {
-            alldata.add(getPartialHrt());
-            alldata.add(getPartialHrtTimestamp());
+            allData.add(getPartialHrt());
+            allData.add(getPartialHrtTimestamp());
         }
 
-        return alldata;
+        return allData;
     }
 
     public ArrayList<String> getSensorNames() {

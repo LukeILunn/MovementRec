@@ -259,6 +259,8 @@ public class TimeSeriesFragment extends Fragment implements MessageHandler.IMess
         return bSensors;
     }
 
+
+
     private void runRemoteStartDialog() {
         // Alert dialog asking whether to start sampling from watch
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());

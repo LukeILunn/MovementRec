@@ -1,11 +1,15 @@
 package uk.ac.aber.movementrecorder.Communication;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
+import android.os.Handler;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.util.Log;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -14,12 +18,22 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import android.app.Activity;
+import android.app.ActivityManager;
+import android.widget.Toast;
 
 import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
+import uk.ac.aber.movementrecorder.UI.MainActivity;
+import uk.ac.aber.movementrecorder.UI.NotificationHandler;
+import uk.ac.aber.movementrecorder.UI.TimeSeriesFragment;
+
+import static android.content.Context.NOTIFICATION_SERVICE;
 import static android.content.Context.VIBRATOR_SERVICE;
 import static uk.ac.aber.movementrecorder.Data.SamplingService.ServiceReceiver.PHONE_SS_ACTION_RESP;
 import static uk.ac.aber.movementrecorder.UI.TimeSeriesFragment.ServiceReceiver.TS_RESP;
@@ -29,11 +43,11 @@ import static uk.ac.aber.movementrecorder.UI.TimeSeriesFragment.ServiceReceiver.
  */
 
 public class NetworkHandler {
-    private static final String URL = "https://meredith.dcs.aber.ac.uk";
+    private static final String URL = "https://meredith.dcs.aber.ac.uk/api/participant/submit";
 
     private Context context;
 
-    public void newPOSTRequest(String jsonObject, final Context context) {
+    public void newPOSTRequest(final String jsonObject, final Context context) {
 
         this.context = context;
 
@@ -68,6 +82,19 @@ public class NetworkHandler {
 
             @Override
             public void onErrorResponse(VolleyError error) {
+
+                Toast.makeText(context, "Upload failed, retrying in 5 seconds", Toast.LENGTH_LONG).show();
+                new Timer().schedule(
+                        new TimerTask() {
+                            @Override
+                            public void run() {
+                                newPOSTRequest(jsonObject, context);
+                            }
+                        },
+                        5000
+                );
+
+
                 if (error.getMessage() != null)
                     Log.d("Volly Error Message", "Failed with error msg:\t" + error.getMessage());
                 if (error.getStackTrace() != null)

@@ -1,9 +1,14 @@
 package uk.ac.aber.movementrecorder.Data;
 
+import android.Manifest;
 import android.app.Notification;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Build;
+import android.os.Environment;
 import android.util.Log;
+
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.wearable.DataMap;
 
@@ -659,7 +664,6 @@ public class DataHandler {
 
         File file = new File(context.getFilesDir(), FILENAME);
 
-
         if (!file.exists()) {
             try {
                 file.createNewFile();
@@ -670,10 +674,10 @@ public class DataHandler {
 
         FileOutputStream outputStream;
         try {
-            //outputStream = context.openFileOutput(file.getName(), context.MODE_PRIVATE);
+            outputStream = context.openFileOutput(file.getName(), context.MODE_PRIVATE);
             outputStream = new FileOutputStream(file);
             outputStream.write(data.getBytes());
-            outputStream.close();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
